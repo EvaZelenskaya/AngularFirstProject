@@ -1,5 +1,8 @@
 $white: white;
 $red: red;
+$focusInputBackground: #f1f1f1;
+$activeButtonBackground: #455ff2;
+$disabledButtonBackground: #b6b6b6;
 $margin: 16px;
 $margin_: 5px 0 20px 0;
 $padding: 15px;
@@ -31,20 +34,21 @@ input[type=text],
 input[type=password],
 select {
   width: 100%;
-  background: #f1f1f1;
-
+  background: $white;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(0 0 0 / 20%);
 }
 
 .alert-danger {
   width: 100%;
   color: $red;
-
 }
 
 input[type=text]:focus,
 input[type=password]:focus,
 select:focus {
-  background-color: #ddd;
+  background-color: $focusInputBackground;
   outline: none;
 }
 
@@ -55,7 +59,7 @@ hr {
 }
 
 .registerbtn {
-  background-color: #4CAF50;
+  background-color: $activeButtonBackground;
   color: $white;
   padding: 16px 20px;
   margin: 8px 0;
@@ -66,8 +70,11 @@ hr {
   font-size: medium;
 }
 
-
-
 .registerbtn:hover {
   opacity: 1;
+}
+
+.registerbtn:disabled {
+  background-color: $disabledButtonBackground;
+  cursor: auto;
 }
