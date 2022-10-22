@@ -1,70 +1,41 @@
-<form [formGroup]="form"
-      (ngSubmit)="onSubmit()"
-      class=" max-w-2xl container mx-auto pt-5">
-  <h3>Информация о маршруте</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form border">
 
-  <div form-group>
+  <div class="container">
+
+    <h3>Информация о маршруте</h3>
+
     <label class="control-label col-xs-2 col-xs-10">Наименование</label>
-    <input type="text"
-           autocomplete="off"
-           class="form-control"
-           [formControlName]="'name'">
-    <p *ngIf="!form.controls['name']?.value && form.controls['longTour']?.value" class="alert alert-danger">Поле обязательно для заполнения!</p>
+    <input type="text" name="name"  class="general" [formControlName]="'name'">
+    <p *ngIf="!form.controls['name']?.value && form.controls['longTour']?.value" class="alert-danger general">
+      Поле обязательно для заполнения, мин. 3 символа!</p>
 
-  </div>
+    <label class="control-label col-xs-2">Автор маршрута</label>
+    <input type="text"  class="general" [formControlName]="'autore'">
+    <p *ngIf="!form.controls['autore']?.value && form.controls['longTour']?.value" class="alert-danger general">
+      Поле обязательно для заполнения, мин. 3 символа!</p>
 
 
-  <div class="form-group">
-    <label class="control-label col-xs-2"
-    >Автор маршрута</label>
-    <div class="col-xs-10">
-      <input type="text"
-             autocomplete="off"
-             class="form-control"
-             [formControlName]="'autore'">
-      <p *ngIf="!form.controls['autore']?.value && form.controls['longTour']?.value" class="alert alert-danger">Поле обязательно для заполнения!</p>
+    <label>Тип исполнителя</label>
+    <select class="general " [formControlName]="'typeOfPerson'">
+      <option value="mec">Механик</option>
+      <option value="fDri">Водитель 1</option>
+      <option value="sDri">Водитель 2</option>
+    </select>
+
+    <div class="general">
+      <label>Дни обхода</label>
+      <label class="radio" *ngFor="let week of weeks">
+        <input type="radio" formControlName="week" [checked]=" ('sun')" [value]="week.type"> {{week.text}}
+      </label>
     </div>
-    <span class="invalid-feedback"></span>
-  </div>
 
-
-  <div class="form-group">
-    <label class="control-label col-xs-2">Тип исполнителя</label>
-    <div class="col-xs-10">
-      <select class="form-select" [formControlName]="'typeOfPerson'">
-        <option value="mec">Механик</option>
-        <option value="fDri">Водитель 1</option>
-        <option value="sDri">Водитель 2</option>
-      </select>
+    <div class="general">
+      <input type="checkbox" [formControlName]="'longTour'">
+      <label #localLabel>Длительный обход</label>
     </div>
-  </div>
-  <div>
-    <label class="form-label font-bold">Дни обхода &nbsp;</label>
-    <label class="radio" *ngFor="let week of weeks" >
-      <input
-        type="radio"
-        name="week"
-        [checked]=" ('sun')"
-        [value]="week.type"
-      > {{week.text }}
-      &nbsp; <p *ngIf="form.get('week.value')?.invalid  ">Укажите день недели!</p>
-    </label>
 
-  </div>
-
-  <div class="form-group">
-    <input  type="checkbox"
-           [formControlName]="'longTour'"
-           class="form-check-input"
-    >
-    <label class="form-check-label">Длительный обход</label>
-
-  </div>
-  <br>
-  <div class="form-group">
-    <button type="submit"
-            class="btn btn-primary save-button"
-            [disabled]="form.status === 'INVALID'">Сохранить
+    <button type="submit" class="registerbtn" [disabled]="form.status === 'INVALID'">
+      Сохранить
     </button>
 
   </div>
