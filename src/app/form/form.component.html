@@ -1,43 +1,63 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form border">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
 
-  <div class="container">
-
+  <div class=" row-base">
     <h3>Информация о маршруте</h3>
+  </div>
 
-    <label class="control-label col-xs-2 col-xs-10">Наименование</label>
-    <input type="text" name="name"  class="general" [formControlName]="'name'">
-    <p *ngIf="!form.controls['name']?.value && form.controls['longTour']?.value" class="alert-danger general">
-      Поле обязательно для заполнения, мин. 3 символа!</p>
+  <div class="row-base">
+    <div class="labels">
+      <label>Наименование</label>
+      <p *ngIf="!form.controls['name']?.value && form.controls['longTour']?.value" class="alert-danger">
+        *</p>
+    </div>
+    <input type="text" name="name" class="general" [formControlName]="'name'">
+  </div>
 
-    <label class="control-label col-xs-2">Автор маршрута</label>
-    <input type="text"  class="general" [formControlName]="'autore'">
-    <p *ngIf="!form.controls['autore']?.value && form.controls['longTour']?.value" class="alert-danger general">
-      Поле обязательно для заполнения, мин. 3 символа!</p>
+  <div class="row-base">
+    <div class="labels">
+      <label>Автор маршрута</label>
+      <p *ngIf="!form.controls['autore']?.value && form.controls['longTour']?.value" class="alert-danger">
+        *</p>
+    </div>
+    <input type="text" class="general" [formControlName]="'autore'">
+  </div>
 
-
-    <label>Тип исполнителя</label>
+  <div class="row-base ">
+    <div class="labels ">
+      <label>Тип исполнителя</label>
+    </div>
     <select class="general " [formControlName]="'typeOfPerson'">
       <option value="mec">Механик</option>
       <option value="fDri">Водитель 1</option>
       <option value="sDri">Водитель 2</option>
     </select>
+  </div>
 
-    <div class="general">
+  <div class="row-base ">
+    <div class="labels ">
       <label>Дни обхода</label>
-      <label class="radio" *ngFor="let week of weeks">
-        <input type="radio" formControlName="week" [checked]=" ('sun')" [value]="week.type"> {{week.text}}
-      </label>
     </div>
 
-    <div class="general">
+    <span class="labels">
+      <div class=" donate-now " *ngFor="let week of weeks; let i= index" >
+        <input type="radio" formControlName="week" [value]="week.type" id="ch{{i}}" [checked]="week">
+        <label for=ch{{i}}>{{week.text}}</label>
+      </div>
+    </span>
+
+
+      <div class="labels">
       <input type="checkbox" [formControlName]="'longTour'">
       <label #localLabel>Длительный обход</label>
     </div>
+  </div>
 
+  <div class="row-for-button">
     <button type="submit" class="registerbtn" [disabled]="form.status === 'INVALID'">
       Сохранить
     </button>
-
   </div>
+
+
 
 </form>

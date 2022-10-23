@@ -49,6 +49,8 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     // localStorage.setItem('formdata', JSON.stringify(null));
 
+
+
     this.element = JSON.parse(localStorage.getItem('formdata') || '{}');
     this.name = this.element.name;
     this.autore = this.element.autore;

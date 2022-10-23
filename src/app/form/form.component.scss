@@ -3,71 +3,68 @@ $red: red;
 $focusInputBackground: #f1f1f1;
 $activeButtonBackground: #455ff2;
 $disabledButtonBackground: #b6b6b6;
-$margin: 16px;
-$margin_: 5px 0 20px 0;
-$padding: 15px;
+$boardInputBackground: #f8f9fdea;
+$forMargin: 2vh;
+$forMarginTop: 5vh;
+$padding: 1.5vh 1vw;
+$width: 50vw;
 
-form {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: medium;
-}
 
-* {
-  box-sizing: border-box;
-}
-
-.container {
-  padding: $margin;
-  background-color: $white;
-}
-
-.general {
-  padding: $padding;
-  margin: $margin_;
+input[type=radio]+label {
   display: inline-block;
-  border: none;
-  font-size: medium;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  line-height: 20px;
+   text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+   background-repeat: repeat-x;
 }
 
-
-input[type=text],
-input[type=password],
-select {
-  width: 100%;
-  background: $white;
-  font-size: 14px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+input[type=radio]:checked+label {
+  background-image: none;
+  outline: 0;
+  //background-color: #e0e0e0;
+  font-weight: bold;
+  text-decoration: underline;
+ color: black;
 }
 
-.alert-danger {
-  width: 100%;
-  color: $red;
-}
-
-input[type=text]:focus,
-input[type=password]:focus,
-select:focus {
-  background-color: $focusInputBackground;
-  outline: none;
-}
-
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-  font-size: large;
+.donate-now input[type="radio"] { //+
+ opacity: 0.01;
 }
 
 .registerbtn {
   background-color: $activeButtonBackground;
   color: $white;
-  padding: 16px 20px;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  justify-content: flex-end;
   margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
   opacity: 0.9;
   font-size: medium;
+  padding: 2vh 2.5vw;
+  border: none;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: outset;
+  border-image: initial;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  margin-top: $forMarginTop;
+  padding: $padding;
+  width: $width;
+  height: auto;
+  background-color: $boardInputBackground;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .registerbtn:hover {
@@ -77,4 +74,66 @@ hr {
 .registerbtn:disabled {
   background-color: $disabledButtonBackground;
   cursor: auto;
+}
+
+.row-main-title {
+  justify-content: flex-start;
+}
+
+.row-base {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: $forMargin;
+  justify-content: space-between;
+}
+
+.row-for-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: $forMargin;
+}
+
+.labels {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.alert-danger {
+  justify-content: center;
+  color: $red;
+}
+
+input[type=text],
+input[type=password],
+select {
+  width: 35vw;
+  height: auto;
+  padding: 2vh 1vw;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+  background: $white;
+  font-size: medium;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+select:focus {
+  background-color: $focusInputBackground;
+  outline: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.general {
+  display: inline-block;
+  border: none;
+  font-size: medium;
 }
