@@ -9,13 +9,16 @@ $forMarginTop: 5vh;
 $padding: 1.5vh 1vw;
 $width: 50vw;
 
+input[type=radio] {
+  display: none;
+}
 
 input[type=radio]+label {
   display: inline-block;
-  padding: 4px 12px;
   margin-bottom: 0;
+  margin-right: 0.5vw;
   line-height: 20px;
-   text-align: center;
+  text-align: center;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
   vertical-align: middle;
   cursor: pointer;
@@ -25,14 +28,13 @@ input[type=radio]+label {
 input[type=radio]:checked+label {
   background-image: none;
   outline: 0;
-  //background-color: #e0e0e0;
   font-weight: bold;
   text-decoration: underline;
- color: black;
+  color: black;
 }
 
 .donate-now input[type="radio"] { //+
- opacity: 0.01;
+  opacity: 0.01;
 }
 
 .registerbtn {
@@ -84,6 +86,13 @@ form {
   display: flex;
   flex-direction: row;
   margin-bottom: $forMargin;
+  justify-content: space-between;
+}
+
+.tour-wrapper {
+  width: 35vw;
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
