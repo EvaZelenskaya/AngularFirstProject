@@ -38,18 +38,21 @@
       <label>Дни обхода</label>
     </div>
 
-    <span class="labels">
-      <div class=" donate-now " *ngFor="let week of weeks; let i= index" >
-        <input type="radio" formControlName="week" [value]="week.type" id="ch{{i}}" [checked]="week">
-        <label for=ch{{i}}>{{week.text}}</label>
-      </div>
-    </span>
-
-
+    <div class="tour-wrapper">
+      <span class="labels">
+        <div class="donate-now" *ngFor="let week of weeks; let i= index" >
+          <input type="radio" formControlName="week" [value]="week.type" id="ch{{i}}" [checked]="week">
+          <label for=ch{{i}}>{{week.text}}</label>
+        </div>
+      </span>
+  
+  
       <div class="labels">
-      <input type="checkbox" [formControlName]="'longTour'">
-      <label #localLabel>Длительный обход</label>
+        <input type="checkbox" [formControlName]="'longTour'">
+        <label #localLabel>Длительный обход</label>
+      </div>
     </div>
+
   </div>
 
   <div class="row-for-button">
